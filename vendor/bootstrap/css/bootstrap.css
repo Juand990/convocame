@@ -4077,16 +4077,16 @@ input[type="button"].btn-block {
   list-style: none;
 }
 
-.nav-link {
+.nav-link, .nav-panel {
   display: block;
   padding: 0.5rem 1rem;
 }
 
-.nav-link:hover, .nav-link:focus {
+.nav-link:hover, .nav-link:focus, .nav-panel:hover, .nav-panel:focus {
   text-decoration: none;
 }
 
-.nav-link.disabled {
+.nav-link.disabled .nav-panel.disabled {
   color: #6c757d;
   pointer-events: none;
   cursor: default;
@@ -4100,24 +4100,25 @@ input[type="button"].btn-block {
   margin-bottom: -1px;
 }
 
-.nav-tabs .nav-link {
+.nav-tabs .nav-link .nav-panel {
   border: 1px solid transparent;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
 }
 
-.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus, .nav-panel:hover, .nav-panel:focus {
   border-color: #e9ecef #e9ecef #dee2e6;
 }
 
-.nav-tabs .nav-link.disabled {
+.nav-tabs .nav-link.disabled .nav-panel.disabled {
   color: #6c757d;
   background-color: transparent;
   border-color: transparent;
 }
 
 .nav-tabs .nav-link.active,
-.nav-tabs .nav-item.show .nav-link {
+.nav-tabs .nav-item.show .nav-link .nav-panel, .nav-tabs .nav-panel.active,
+.nav-tabs .nav-item.show .nav-panel {
   color: #495057;
   background-color: #fff;
   border-color: #dee2e6 #dee2e6 #fff;
@@ -4129,12 +4130,13 @@ input[type="button"].btn-block {
   border-top-right-radius: 0;
 }
 
-.nav-pills .nav-link {
+.nav-pills .nav-link .nav-panel {
   border-radius: 0.25rem;
 }
 
 .nav-pills .nav-link.active,
-.nav-pills .show > .nav-link {
+.nav-pills .show > .nav-link,.nav-pills .nav-panel.active,
+.nav-pills .show > .nav-panel {
   color: #fff;
   background-color: #007bff;
 }
