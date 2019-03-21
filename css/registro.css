@@ -131,8 +131,7 @@ textarea:hover {
   background: #b3aca7;
   color: #e2dedb;
 }
-
-#submit {
+div div #enviar {
   width: 90%px;
   
   padding: 0;
@@ -149,6 +148,29 @@ textarea:hover {
   
 }
 
-#submit:hover {
+div div #enviar:hover {
   color: #e88033;
 }
+
+
+#update {
+  width: 90%px;
+  
+  padding: 0;
+  margin: 5px 0px 0px 0px;
+  
+  font-family: 'Lato', sans-serif;
+  font-size: 1.4em;
+  color: #b3aca7;
+  
+  outline:none;
+  cursor: pointer;
+  
+  border: solid 3px #b3aca7;
+  
+}
+#update:hover {
+  color: #e88033;
+}
+
+
