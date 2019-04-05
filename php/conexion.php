@@ -1,7 +1,7 @@
 <?php
 $host="localhost";
-$user="root";
-$password="alumne";
+$user="jdadrtsv";
+$password="Z7CYPOlc";
 $db="convocam";
 $con = new mysqli($host,$user,$password,$db);
 

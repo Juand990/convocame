@@ -1,3 +1,6 @@
+/*color texto anterior: e88033, e2dedb 726659  */
+/*color back anterior: black, b3aca7  */
+
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400);
 
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
@@ -62,11 +65,13 @@ input:hover::placeholder, textarea:hover::placeholder {
 }
 
 input:hover:focus::placeholder, textarea:hover:focus::placeholder {
-  color: #e88033;
+  color: #f00;
+  font-weight:bold;
 }
 
 input:hover::placeholder, textarea:hover::placeholder {
-  color: #e88033;
+  color: #f00;
+  font-weight:bold;
   font-size: 1em;
 }
 
@@ -99,10 +104,10 @@ input {
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
 }
-
+/*Color fondo input*/
 input:hover {
-  background: #b3aca7;
-  color: #e2dedb;
+  background: #fbe1cb;
+  color: #f00;
 }
 
 textarea {

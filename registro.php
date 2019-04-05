@@ -1,9 +1,11 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 
   <head>
-	<script src='https://www.google.com/recaptcha/api.js'></script>
+	<!--<script src='https://www.google.com/recaptcha/api.js'></script>-->
+	<script src="https://www.google.com/recaptcha/api.js?hl=ca">
+</script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -38,6 +40,37 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 ?>
 
     <!-- Header -->
+     <header class="masthead" >
+		<div class="container d-flex h-100 align-items-center">
+        <div class="mx-auto text-center"><br>
+          <h1 class="mx-auto my-0 text-uppercase">Convocam</h1>
+         <div id="container">
+		<form role="form" class="topBefore" name="registro" action="php/registro.php" method="post">
+		  <div class="form-group">		    
+		    <input type="text" id="username" name="username" placeholder="Nom d'usuari">
+		  </div>		  
+		  <div class="form-group">		    
+		    <input type="email" id="email" name="email" placeholder="Email">
+		  </div>
+		  <div class="form-group">		   
+		    <input type="password" id="password" name="password" placeholder="Password">
+		  </div>
+		  <div class="form-group">		    
+		    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirma Password">
+		  </div>
+		  <div class="g-recaptcha" data-sitekey="6LcbtZEUAAAAACUFCWqB60TdDVxz8otifOXCavZl"></div>
+		  
+		  <input id="enviar" type="submit" value="Registrar-se">
+		
+		</form>
+		<a href="noupass.php">Has oblidat la contrasenya?</a>
+		</div>
+		</div>
+		</div>
+		<script src="js/valida_login.js"></script>
+    </header>  
+    
+    <!--
     <header class="masthead" >
       <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
@@ -66,7 +99,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
       </div>
 		<script src="js/valida_registro.js"></script>			
     </header>
-
+-->
      <!-- Footer -->
     <footer class="bg-black small text-center text-white-50">
       <div class="container">

@@ -4,12 +4,12 @@ with(document.login){
 		ok = true;
 		if(ok && username.value==""){
 			ok=false;
-			alert("Tens que escriure el nom d'usuari");
+			alert("Has d'escriure el nom d'usuari");
 			username.focus();
 		}
 		if(ok && password.value==""){
 			ok=false;
-			alert("Tens que escriure el password");
+			alert("Has d'escriure el password");
 			password.focus();
 		}
 		if(ok){ submit(); }

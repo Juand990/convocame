@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 
   <head>
 
@@ -42,22 +42,19 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
         <div class="mx-auto text-center">
           <h1 class="mx-auto my-0 text-uppercase">Convocam</h1>
          <div id="container">
-      <form role="form" name="login" action="php/login.php" method="post">
-		  <div class="form-group">
-		    
-		    <input type="text"  id="username" name="username" placeholder="Nom d'usuari">
+		<form role="form" name="login" action="php/login.php" method="post">
+		  <div class="form-group">		    
+		    <input type="text"  id="username" name="username" placeholder="user: prueba">
 		  </div>
-		  <div class="form-group">
-		   
-		    <input type="password" id="password" name="password" placeholder="Password">
+		  <div class="form-group">		   
+		    <input type="password" id="password" name="password" placeholder="pass: Qwerty1">
 		  </div>
-
 		  <input id="enviar" type="submit" value="Iniciar sessió">
 		</form>
-<a href="noupass.php">Has oblidat la contrasenya?</a>
-</div>
-</div>
-</div>
+		<a href="noupass.php">Has oblidat la contrasenya?</a>
+	</div>
+	</div>
+	</div>
 		<script src="js/valida_login.js"></script>
     </header>
 
