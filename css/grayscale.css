@@ -61,6 +61,11 @@
   #mainNav .nav-link:hover {
     color: rgba(255, 255, 255, 0.75);
   }
+  
+  
+  
+  
+  
   #mainNav .nav-link:active {
     color: white;
   }
@@ -323,7 +328,6 @@ a {
   color: #;
 }
 
-/*Color del link  #ea9920*/
 a:focus, a:hover {
   text-decoration: none;
   color: #fff;
@@ -345,11 +349,11 @@ footer {
   padding:1rem 0;
 }
 
-.jugador a:focus, a:hover {
-  text-decoration: none;
-  color: #f00;
+div.enllac a:focus, div.enllac a:hover{
+	color: #000;
 }
 
-.info{
-  font-family: 'Nunito';
-}
+
+
+
+

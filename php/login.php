@@ -6,13 +6,14 @@ if(!empty($_POST)){
 			include "conexion.php";
 			
 			$user_id=null;
-			$sql1= "select * from entrenadors where (username=\"$_POST[username]\" or email=\"$_POST[username]\") and password=\"$_POST[password]\" ";
+			$sql1= "select * from entrenadors where (username=\"$_POST[username]\" or email=\"$_POST[username]\") and password=md5(\"$_POST[password]\") ";
 			$query = $con->query($sql1);
 			while ($r=$query->fetch_array()) {
 				$user_id=$r["codi"];
 				break;
 			}
 			if($user_id==null){
+				//Si no introdueix les dades, no pot entrar
 				echo "<script>alert(\"Nom d'usuari equivocat o aquest nom no existeix.\");window.location='../login.php';</script>";
 			}else{
 				session_start();

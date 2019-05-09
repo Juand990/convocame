@@ -20,8 +20,9 @@ $name = stripslashes($_POST["name"]);
 	$context  = stream_context_create($options);
 	$verify = file_get_contents($url, false, $context);
 	$captcha_success = json_decode($verify);
-	if ($captcha_success->success) {
-		// No eres un robot, continuamos con el envío del email
+	
+	//Si completa el captcha, li deixa registrar-se.
+	if ($captcha_success->success) {		
 		if(!empty($_POST)){
 	if(isset($_POST["username"])  &&isset($_POST["email"]) &&isset($_POST["password"]) &&isset($_POST["confirm_password"])){
 		if($_POST["username"]!=""&& $_POST["email"]!=""&&$_POST["password"]!=""&&$_POST["password"]==$_POST["confirm_password"]){
@@ -37,7 +38,7 @@ $name = stripslashes($_POST["name"]);
 			if($found){
 				echo "<script>alert(\"Aquest nom d'usuari ja esta registrat.\");window.location='../registro.php';</script>";
 			}else{
-			$sql = "insert into entrenadors(username,password,email) value (\"$_POST[username]\",\"$_POST[password]\",\"$_POST[email]\")";
+			$sql = "insert into entrenadors(username,password,email) value (\"$_POST[username]\",md5(\"$_POST[password]\"),\"$_POST[email]\")";
 			$query = $con->query($sql);
 			}
 			
@@ -48,7 +49,7 @@ $name = stripslashes($_POST["name"]);
 	}
 	}
 	} else {
-		// Eres un robot!
+		// No ha acceptat el captcha.
 		echo "<script>alert(\"Has de confirmar el captcha.\");window.location='../registro.php';</script>";
 	}
 

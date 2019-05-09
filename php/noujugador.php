@@ -15,6 +15,7 @@ if(isset($_POST["nom"]) && isset($_POST["cognom"]) && isset($_POST["telefon"]) &
 		$telefon = $_POST['telefon'];	
 		$entrenador=$_SESSION['user_id'];
 			
+		
 		if(strlen($telefon)==9){
 			$found=false;
 			$sql1= "select * from jugadors where telefon=$telefon";
@@ -24,16 +25,16 @@ if(isset($_POST["nom"]) && isset($_POST["cognom"]) && isset($_POST["telefon"]) &
 				break;
 			}
 			if($found){
-
+			//Si a la base de dades està aquest telèfon no l'inserta.	
 			echo "<script>alert(\"Aquest telèfon de jugador ja està registrat.\");window.location='../home.php';</script>";
 			}
 			else{
-
+			//Si no existeix sí que l'inserta.
 			$sql ="INSERT INTO jugadors(nom, cognom, telefon, msg, entrenador) VALUES (\"$_POST[nom]\",\"$_POST[cognom]\",\"$_POST[telefon]\",\"$_POST[msg]\",\"$entrenador\")";
 				$query = $con->query($sql);
 			}
 			if($query!=null){
-				echo "<script>alert(\"Registre exitós.\");window.location='../home.php';</script>";
+				echo "<script>alert(\"Ingrés de Jugador exitós.\");window.location='../home.php';</script>";
 			}
 		}else{
 			echo "<script>alert(\"El camp del telèfon ha de tenir nou dígits.\");window.location='../home.php';</script>";
