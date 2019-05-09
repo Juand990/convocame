@@ -28,12 +28,18 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 
     <!-- Custom styles for this template -->
     <link href="css/grayscale.css" rel="stylesheet">
+    
+	<!-- Secció Cookie -->
+	<script type="text/javascript">
+    window.cookieconsent_options = {"message":"Sol·licitem el seu permís per obtenir dades estadístiques de la seva navegació en aquesta web, en compliment del Reial decret-llei 13/2012. Si continua navegant considerem que accepta l'ús de cookies.","dismiss":"Acepto","theme":"dark-bottom"};
+	</script>
 
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
   </head>
 
   <body id="page-top">
 
-    <!-- Navigation -->
+    <!-- Aquí és el Menú  -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="index.php#page-top">CONVOCAM</a>
@@ -54,12 +60,25 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
         </div>
       </div>
     </nav>
-<!-- Projects Section -->
+    
+<!-- Aquest es el formulari de introduir els jugadors -->
 	<section id="projects" class="projects-section bg-light">
       <div class="container">
         <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
           <div class="col-lg-6">
-	 <div class="info"><img src="img/info.png" style="width:10%"> Introdueix ara la informació dels teus jugadors.</div><br><br>
+	 <div class="info"><img src="img/info.png" style="width:10%"> Introdueix ara la informació dels teus jugadors. <br>
+	 Mitjançant un fitxer csv o individualment.
+
+	</div><br>
+		<form  action="php/import.php" method="post" name="upload_excel" enctype="multipart/form-data">
+			<div class="form-group">
+	<label class="col-md-6 control-label" for="filebutton">Selecciona el fitxer .csv</label>
+			<input type="file" name="sel_file" size="20">
+           </div>                        
+                                                   
+     <button class="btn" type="submit" id="submit" name="Import" style="background:#e88033;margin-bottom:20px;margin-left:25%">Enviar</button>                                                                
+        </form>
+        
             <form role="form" name="jugadors" action="php/noujugador.php" method="post">
 		<div class="form-group">		    
 			<input type="text"  id="nom" name="nom" maxlength="20" placeholder="Nom Jugador">

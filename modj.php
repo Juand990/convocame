@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
-	print "<script>alert(\"Accés invàlid!!\");window.location='login.php';</script>";
+	print "<script>alert(\"Acces invalit!\");window.location='login.php';</script>";
 }
 
 ?>
@@ -28,7 +28,13 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 
     <!-- Custom styles for this template -->
     <link href="css/grayscale.css" rel="stylesheet">
+	
+	<!-- Secció Cookie -->
+	<script type="text/javascript">
+    window.cookieconsent_options = {"message":"Sol·licitem el seu permís per obtenir dades estadístiques de la seva navegació en aquesta web, en compliment del Reial decret-llei 13/2012. Si continua navegant considerem que accepta l'ús de cookies.","dismiss":"Acepto","theme":"dark-bottom"};
+	</script>
 
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
   </head>
 
   <body id="page-top">
@@ -54,7 +60,8 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
         </div>
       </div>
     </nav>
-  
+    
+  <!-- Modificar el missatge que veurà el jugador. -->
    <section id="projects" class="projects-section bg-light">
       <div class="container">		       
           <div class="text-center">	

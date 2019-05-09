@@ -23,12 +23,25 @@
 
     <!-- Custom styles for this template -->
     <link href="css/grayscale.css" rel="stylesheet">
+    
+    <!-- Secció Cookie -->
+	<script type="text/javascript">
+    window.cookieconsent_options = {"message":"Sol·licitem el seu permís per obtenir dades estadístiques de la seva navegació en aquesta web, en compliment del Reial decret-llei 13/2012. Si continua navegant considerem que accepta l'ús de cookies.","dismiss":"Acepto","theme":"dark-bottom"};
+	</script>
 
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+	
+	<!-- Secció Cookie -->
+	<script type="text/javascript">
+    window.cookieconsent_options = {"message":"Sol·licitem el seu permís per obtenir dades estadístiques de la seva navegació en aquesta web, en compliment del Reial decret-llei 13/2012. Si continua navegant considerem que accepta l'ús de cookies.","dismiss":"Acepto","theme":"dark-bottom"};
+	</script>
+
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
   </head>
 
   <body id="page-top">
 
-    <!-- Navigation -->   
+    <!-- Segons si està loguejat o no mostra un menú o un altre -->   
 <?php
 if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 	include "php/navbar.php";
@@ -36,7 +49,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 	include "php/navlogin.php";
 }
 ?>    
-    <!-- Header -->
+    <!-- Aquí és la part d'informació que mostrem al principi de la pàgina web. -->
     <header class="masthead">
       <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
@@ -47,7 +60,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
       </div>
     </header>
 
-    <!-- About Section -->
+    <!-- Si li donem a llegir més, ens portarà aquesta part i expliquem un poc mes de què tracta el nostre servei. -->
     <section id="about" class="about-section text-center">
       <div class="container">
         <div class="row">
@@ -67,9 +80,9 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
     <section id="projects" class="projects-section bg-light">
       <div class="container">
 
-        <!-- Featured Project Row -->    
+        <!-- Featured Project Row -->       
 
-        <!-- Project Two Row -->
+        <!-- Expliquem els nostres serveis i el que implementem en la nostra pàgina web. -->
         <div class="row justify-content-center no-gutters">
           <div class="col-lg-6">
            <img class="img-fluid" src="img/logo.png" alt="">
@@ -86,7 +99,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
             </div>
           </div>
         </div>
- <!-- Project One Row -->
+		<!-- Expliquem els nostres serveis i el que implementem en la nostra pàgina web. -->
         <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
           <div class="col-lg-6">
             <img class="img-fluid" src="img/what.jpg" alt="">
@@ -108,7 +121,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
     
     
   
-    <!-- Signup Section -->
+    <!-- Aquesta és la part de la direcció de la nostra empresa el contacte i tot allò.  -->
     <section id="signup" class="signup-section">
        <div class="container">
 
@@ -133,8 +146,8 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
                 <i class="fas fa-envelope text-primary mb-2"></i>
                 <h4 class="text-uppercase m-0">Correu electrònic</h4>
                 <hr class="my-4">
-                <div class="small text-black-50">
-                  <a href="#email">Convocam@gmail.com</a>
+                <div class="enllac" >
+                  <a href="mailto:convocam@gmail.com?Subject=Aquí%20el%20asunto%20del%20mail">convocam@gmail.com</a>
                 </div>
               </div>
             </div>
@@ -156,7 +169,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Secció de contacte. -->
     <section class="contact-section bg-black">
      <div class="social d-flex justify-content-center">
           <a href="#" class="mx-2">

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
-	print "<script>alert(\"Accés invàlid!!\");window.location='login.php';</script>";
+	print "<script>alert(\"Acces invalit!\");window.location='login.php';</script>";
 }
 
 ?>
@@ -28,12 +28,18 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 
     <!-- Custom styles for this template -->
     <link href="css/grayscale.css" rel="stylesheet">
+	
+	<!-- Secció Cookie -->
+	<script type="text/javascript">
+    window.cookieconsent_options = {"message":"Sol·licitem el seu permís per obtenir dades estadístiques de la seva navegació en aquesta web, en compliment del Reial decret-llei 13/2012. Si continua navegant considerem que accepta l'ús de cookies.","dismiss":"Acepto","theme":"dark-bottom"};
+	</script>
 
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
   </head>
 
   <body id="page-top">
 
-    <!-- Navigation -->
+    <!-- Menú -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="index.php#page-top">CONVOCAM</a>
@@ -55,9 +61,11 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
       </div>
     </nav>
   
+  <!-- Taula per mostrar els jugadors inserits. -->
    <section id="projects" class="projects-section bg-light">
       <div class="container">		       
           <div class="text-center">	
+<div class="info"><img src="img/info.png" style="width:5%"> Per poder enviar el Missatge des del PC has d'iniciar sessió a WhatsApp Web.</div><br><br>
                 <table id="jugador" border="2px solid black" class="table">
 	<?php
 		include "php/conexion.php";
@@ -68,7 +76,8 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 			foreach($con->query($sql) as $info){
 				echo "<td>".$info["nom"]."</td>";
 				echo "<td>".$info["cognom"]."</td>";
-			echo "<td><a href='modj.php?modj=".$info['codi']."'>Nou Missatge</a></td>";				
+			echo "<td><div class='enllac'><a  href='modj.php?modj=".$info['codi']."'>Nou Missatge</a></div>";		
+		echo "<div class='enllac'><a  href='?eliminar=".$info['codi']."'>Eliminar</a></div></td>";		
 				
 echo "<td><button type=\"button\" role=\"link\" 
 onClick=\"window.open('https://api.whatsapp.com/send?phone=34".$info['telefon']."&text=".$info['msg']."')\">
@@ -108,5 +117,19 @@ onClick=\"window.open('https://api.whatsapp.com/send?phone=34".$info['telefon'].
     <script src="js/grayscale.min.js"></script>
 </body>
 </html>
+
+
+<?php
+if(isset($_GET["eliminar"])){
+$codi=$_GET["eliminar"];
+$query = "delete from jugadors WHERE codi='".$codi."'";
+
+$result = mysqli_query($con, $query);					     
+					   
+if(!mysqli_query($con,$query)){		
+	echo "ERROR: ".mysql_sqlstate($con);
+}else echo "<script>alert(\"Jugador Eliminat.\");window.location='mostraj.php';</script>";
+}
+?>
 
 

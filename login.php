@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="en">
 
   <head>
 
@@ -23,7 +23,13 @@
 
     <!-- Custom styles for this template -->
     <link href="css/grayscale.css" rel="stylesheet">
+    
+	<!-- Secció Cookie -->
+	<script type="text/javascript">
+    window.cookieconsent_options = {"message":"Sol·licitem el seu permís per obtenir dades estadístiques de la seva navegació en aquesta web, en compliment del Reial decret-llei 13/2012. Si continua navegant considerem que accepta l'ús de cookies.","dismiss":"Acepto","theme":"dark-bottom"};
+	</script>
 
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
   </head>
 
   <body id="page-top">
@@ -36,25 +42,28 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 	include "php/navlogin.php";
 }
 ?>
-    <!-- Header -->
+    <!-- Introduïm l'usuari i la contrasenya per entrar. -->
     <header class="masthead" >
       <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
           <h1 class="mx-auto my-0 text-uppercase">Convocam</h1>
          <div id="container">
-		<form role="form" name="login" action="php/login.php" method="post">
-		  <div class="form-group">		    
+      <form role="form" name="login" action="php/login.php" method="post">
+		  <div class="form-group">
+		    
 		    <input type="text"  id="username" name="username" placeholder="user: prueba">
 		  </div>
-		  <div class="form-group">		   
-		    <input type="password" id="password" name="password" placeholder="pass: Qwerty1">
+		  <div class="form-group">
+		   
+		    <input type="password" id="password" name="password" placeholder="pass: Qwerty11">
 		  </div>
+
 		  <input id="enviar" type="submit" value="Iniciar sessió">
 		</form>
-		<a href="noupass.php">Has oblidat la contrasenya?</a>
-	</div>
-	</div>
-	</div>
+<a href="noupass.php">Has oblidat la contrasenya?</a>
+</div>
+</div>
+</div>
 		<script src="js/valida_login.js"></script>
     </header>
 

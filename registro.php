@@ -1,8 +1,11 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 
   <head>
-
+	<!--<script src='https://www.google.com/recaptcha/api.js'></script>-->
+	<script src="https://www.google.com/recaptcha/api.js?hl=ca">
+</script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -35,48 +38,45 @@
 
     <!-- Navigation -->
 <?php
-include "php/navbar.php";
+if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
+	include "php/navbar.php";
+}else{
+	include "php/navlogin.php";
+}
 ?>
 
-<!-- Formulari per canviar la contrasenya. -->
-<section id="about" class="about-section text-center">
-      <div class="container">
-        <div class="row">			
-          <div class="col-lg-8 mx-auto">           
-            <h2 class="text-white mb-4">Canviar Contrasenya</h2>            
-          </div>	
-        </div>       
-      </div>
-<form action="#" method="post">
+    <!-- Formulari de Registre. -->
+     <header class="masthead" >
+		<div class="container d-flex h-100 align-items-center">
+        <div class="mx-auto text-center">
+          <h1 class="mx-auto my-0 text-uppercase" style="padding-top:1em">Convocam</h1>
+         <div id="container">
+		<form role="form" class="topBefore" name="registro" action="php/registro.php" method="post">
+		  <div class="form-group">		    
+		    <input type="text" id="username" name="username" pattern=".{6,}" required title="El usuari ha de tenir minim 6 caracters" placeholder="Nom d'usuari">
+		  </div>		  
+		  <div class="form-group">		    
+		    <input type="email" id="email" name="email" placeholder="Email">
+		  </div>
+		  <div class="form-group">		   
+		    <input type="password" id="password" name="password" pattern=".{8,}" required title="La contrasenya ha de tenir minim 8 caracters" placeholder="Password">
+		  </div>
+		  <div class="form-group">		    
+		    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirma Password">
+		  </div>
+		  <div class="g-recaptcha" data-sitekey="6LcbtZEUAAAAACUFCWqB60TdDVxz8otifOXCavZl"></div>
+		  
+		  <input id="enviar" type="submit" value="Registrar-se">
+		
+		</form>
+		<a href="noupass.php">Has oblidat la contrasenya?</a>
+		</div>
+		</div>
+		</div>
+		<script src="js/valida_registro.js"></script>	
+    </header>  
 
-            <input type="text" name="user" placeholder="Nom d'Usuari"><br><br>
-
-            <input type="password" name="pass" placeholder="Nova Password"><br><br>
-
-	    <input type="password" name="passdos" placeholder="Repeteix la Password"><br><br>
-           
-            <input type="submit" id="update" name="update" value="Actualitzar Password">
-
-        </form>
-
-    </section>
-<!-- Contact Section -->
-    <section class="contact-section bg-black">
-     <div class="social d-flex justify-content-center">
-          <a href="#" class="mx-2">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="#" class="mx-2">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="https://github.com/jdadrtsv/convocame.git" class="mx-2">
-            <i class="fab fa-github"></i>
-          </a>
-        </div>
-
-    </section>
-   
-    <!-- Footer -->
+     <!-- Footer -->
     <footer class="bg-black small text-center text-white-50">
       <div class="container">
 		  
@@ -99,54 +99,8 @@ include "php/navbar.php";
 
     <!-- Custom scripts for this template -->
     <script src="js/grayscale.min.js"></script>
-	
 
   </body>
 
 </html>
 
-<?php
- 
-// Codi per actualitzar la contrasenya.
-
-if(isset($_POST['update'])){
-
-include "php/conexion.php";  
-
-	if($_POST["user"]!=""&& $_POST["pass"]!=""&&$_POST["passdos"]!=""){   
-		
-		$user = $_POST['user'];
-		$pass = $_POST['pass']; 
-		$passdos = $_POST['passdos'];
-
-		if($pass==$passdos){
-			$id ="SELECT codi FROM entrenadors WHERE username='".$user."'";
-
-			$result = mysqli_query($con, $id);
-			$pos=mysqli_fetch_array($result);
-
-			$codi=$pos["codi"];
-			//echo $codi=$pos["codi"];
-
-
-			if($codi){
-				$query = "UPDATE entrenadors SET password='".$pass."' WHERE username='".$user."'";
-				$result = mysqli_query($con, $query);
-				     
-				   mysqli_close($con);
-
-				echo "<script>alert(\"Contrasenya canviada.\");window.location='login.php';</script>";
-			}else{
-				echo "<script>alert(\"Aquest nom d'usuari no existeix.\")</script>";
-			}
-		}else{
-			echo "<script>alert(\"Els password han de coincidir.\")</script>";
-		}		
-
-	}else{
-		echo "<script>alert(\"Els camps no poden estar vuits.\")</script>";
-	}	
-}
-
-
-?>
