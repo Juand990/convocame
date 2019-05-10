@@ -116,8 +116,8 @@ include "php/conexion.php";
 	if($_POST["user"]!=""&& $_POST["pass"]!=""&&$_POST["passdos"]!=""){   
 		
 		$user = $_POST['user'];
-		$pass = $_POST['pass']; 
-		$passdos = $_POST['passdos'];
+		$pass = md5($_POST['pass']); 
+		$passdos = md5($_POST['passdos']);
 
 		if($pass==$passdos){
 			$id ="SELECT codi FROM entrenadors WHERE username='".$user."'";

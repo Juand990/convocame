@@ -1,13 +1,15 @@
 <?php
 session_start();
 		
+//Perquè accepti caràcters com la ñ
 header('Content-type: text/html; charset=utf-8');	
 if(isset($_POST["jugadors"])){
 
 if(isset($_POST["nom"]) && isset($_POST["cognom"]) && isset($_POST["telefon"]) && isset($_POST["msg"])){
 
 	include "conexion.php";
-
+	
+	//Perquè accepti caràcters com la ñ
 	mysqli_set_charset($con,'utf8');
 
 	if($_POST["nom"]!=""&& $_POST["telefon"]!=""&& $_POST["msg"]!=""){				
