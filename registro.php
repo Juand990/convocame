@@ -64,7 +64,7 @@ if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"]==null){
 		  <div class="form-group">		    
 		    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirma Password">
 		  </div>
-		  <div class="g-recaptcha" data-sitekey="6LcbtZEUAAAAACUFCWqB60TdDVxz8otifOXCavZl"></div>
+		  <div class="g-recaptcha" style="display:inline-block" data-sitekey="6LcbtZEUAAAAACUFCWqB60TdDVxz8otifOXCavZl"></div>
 		  
 		  <input id="enviar" type="submit" value="Registrar-se">
 		
